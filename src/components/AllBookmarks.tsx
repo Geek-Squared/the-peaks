@@ -6,8 +6,7 @@ import Navbar from "./Nav/Navbar";
 const AllBookmarks = () => {
   const bookmark = useSelector((state: RootState) => state.bookmark);
   
-
-  console.log("bk", bookmark);
+  console.log('bk', bookmark);
 
   return (
     <>

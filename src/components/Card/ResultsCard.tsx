@@ -25,22 +25,17 @@ const ResultsCard: FC<ResultsCardProps> = ({
   const fourthElement = newsData?.response?.results?.slice(3, 4);
   const fifthElement = newsData?.response?.results?.slice(4, 5);
 
+  // make elements iterable
+  const elements = [
+    firstElement,
+    secondElement,
+    thirdElement,
+    fourthElement,
+    fifthElement,
+  ];
+
   return (
     <>
-      <div className="top">
-        {isTopSection && (
-          <>
-            <TopSection
-              firstElement={firstElement}
-              secondElement={secondElement}
-              thirdElement={thirdElement}
-              fourthElement={fourthElement}
-              fifthElement={fifthElement}
-            />
-          </>
-        )}
-      </div>
-
       <div className="results">
         {hasSearchResults ? (
           <>
@@ -87,6 +82,19 @@ const ResultsCard: FC<ResultsCardProps> = ({
             )}
           </>
         ))}
+      </div>
+      <div className="top">
+        {isTopSection && (
+          <>
+            {/* <TopSection
+              firstElement={elements[0]}
+              secondElement={elements[1]}
+              thirdElement={elements[2]}
+              fourthElement={elements[3]}
+              fifthElement={elements[4]}
+            /> */}
+          </>
+        )}
       </div>
     </>
   );

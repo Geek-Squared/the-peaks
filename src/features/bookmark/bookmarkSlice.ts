@@ -2,14 +2,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface BookmarkState {
   bookmarks: any;
-  isBookmarked: boolean;
-  nextPage: number;
 }
 
 const initialState: BookmarkState = {
   bookmarks: [],
-  isBookmarked: false,
-  nextPage: 1,
 };
 
 export const bookmarkSlice = createSlice({
@@ -20,13 +16,13 @@ export const bookmarkSlice = createSlice({
       state.bookmarks.push(action.payload);
     },
     removeBookmark: (state, action: PayloadAction<string>) => {
-      state.bookmarks.splice(state.bookmarks.indexOf(action.payload), 1);
+      state.bookmarks = state.bookmarks.filter(
+        (bookmark: string) => bookmark !== action.payload
+      );
     },
-  
   },
 });
 
-export const { addBookmark, removeBookmark } =
-  bookmarkSlice.actions;
+export const { addBookmark, removeBookmark } = bookmarkSlice.actions;
 
 export default bookmarkSlice.reducer;

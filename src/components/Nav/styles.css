@@ -13,11 +13,31 @@ body {
   background-color: #09357b;
   padding: 2rem 2rem;
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 2rem;
+  }
+}
+
 .container {
   margin: 0 15rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    margin: 0 2rem;
+  }
+}
+
 .logo {
+}
+
+@media (max-width: 768px) {
+  .logo {
+  }
 }
 
 .nav-elements {
@@ -28,13 +48,23 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .nav-elements {
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 2rem;
+    border-bottom: 3px solid #fff;
+    cursor: pointer;
+  }
+}
+
 form {
-    position: relative;
-    padding: 15px;
+  position: relative;
+  padding: 15px;
 }
 
 input[type="search"] {
-  background-image: url('../../../public/images/search.svg');
+  background-image: url("../../../public/images/search.svg");
   background-position: 220px 6px;
   background-repeat: no-repeat;
   padding-left: 40px;
@@ -48,11 +78,17 @@ input[type="search"] {
   width: 250px;
 }
 
+@media (max-width: 768px) {
+  input[type="search"] {
+    width: 200px;
+    margin-top: 40px;
+    margin-left: -200px;
+  }
+}
+
 input[type="search"]::placeholder {
   color: white;
 }
 
 button {
-  
 }
-

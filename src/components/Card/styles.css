@@ -4,6 +4,14 @@
   gap: 50px;
 }
 
+@media (max-width: 768px) {
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+  }
+}
+
 .card-top {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -12,11 +20,16 @@
   overflow: hidden;
   width: 700px;
   height: 600px;
-  
 }
 
 .card-top:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .card-top {
+    width: 100px;
+  }
 }
 
 .right-cards {
@@ -24,16 +37,41 @@
   flex-direction: column;
 }
 
+@media (max-width: 768px) {
+  .right-cards {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+  }
+}
+
 .top-cards {
   display: flex;
   flex-direction: row;
   gap: 50px;
 }
+
+@media (max-width: 768px) {
+  .top-cards {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+  }
+}
+
 .bottom-cards {
   display: flex;
   flex-direction: row;
   gap: 50px;
   margin-top: 90px;
+}
+
+@media (max-width: 768px) {
+  .bottom-cards {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+  }
 }
 
 .card-top-2 {
@@ -44,11 +82,25 @@
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .card-top-2 {
+    width: 100px;
+  }
+}
+
 .cards {
   display: flex;
   flex-direction: row;
   gap: 50px;
   margin-top: 90px;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+  }
 }
 
 .card {
@@ -63,7 +115,17 @@
   background-repeat: no-repeat;
   height: 40vh;
   width: 100%;
-  border-bottom: 3px solid #D32F2F;
+  border-bottom: 3px solid #d32f2f;
+}
+
+@media (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 40vh;
+    width: 100%;
+  }
 }
 
 .card:hover {
@@ -111,4 +173,25 @@ img {
   padding: 200px;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .top {
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    padding: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    margin: 0 50px;
+  }
+  .results {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    padding: 10px;
+    margin: 0 auto;
+  }
 }

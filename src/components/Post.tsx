@@ -31,11 +31,12 @@ const Post = () => {
   const { data, isLoading } = useGetPostQuery(postId);
 
   const addPostsToBookmark = () => {
-    addBookmark(data?.response?.content);
+    // save data?.response?.content to local storage
+    localStorage.setItem("bookmark", JSON.stringify(data?.response?.content));
   };
 
   const removePostsFromBookmark = () => {
-    removeBookmark(data?.response?.content);
+    dispatch(removeBookmark(data?.response?.content));
   };
 
   console.log("bookmark", bookmark);

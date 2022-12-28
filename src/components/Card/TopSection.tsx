@@ -1,12 +1,12 @@
 import { FC } from "react";
 import "./styles.css";
-
 interface TopSectionProps {
   firstElement?: any;
   secondElement?: any;
   thirdElement?: any;
   fourthElement?: any;
   fifthElement?: any;
+  sortValue?: string;
 }
 
 const TopSection: FC<TopSectionProps> = ({
@@ -15,6 +15,7 @@ const TopSection: FC<TopSectionProps> = ({
   thirdElement,
   fourthElement,
   fifthElement,
+  sortValue,
 }) => {
   const [firstElementData] = firstElement;
   const [secondElementData] = secondElement;

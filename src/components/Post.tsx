@@ -1,24 +1,15 @@
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../store";
+import { useDispatch } from "react-redux";
 import { useGetPostQuery } from "../features/apiSlice";
-import {
-  addBookmark,
-  removeBookmark,
-} from "../features/bookmark/bookmarkSlice";
+import { addBookmark } from "../features/bookmark/bookmarkSlice";
 import { useParams } from "react-router-dom";
 import Navbar from "./Nav/Navbar";
 import BookmarkButton from "./BookmarkButton";
 import "./styles.css";
 import Loader from "./Loader";
-import Footer from "./Footer";
 import { convertDate, removeTrailingSlash } from "../utils";
 
 const Post = () => {
   const dispatch = useDispatch();
-  const bookmark = useSelector((state: RootState) => state.bookmark);
-  const [isBookmark, setIsBookmark] = useState(true);
-  const [bookmarkIsAvailable, setBookmarkIsAvailable] = useState(false);
   const params = useParams();
 
   const fullId = params?.id + "/" + params["*"];
@@ -44,7 +35,6 @@ const Post = () => {
           title={"ADD BOOKMARK"}
           onClick={() => dispatch(addBookmark(data?.response?.content))}
         />
-       
       </div>
       <div className="container">
         <div className="content">
@@ -56,13 +46,16 @@ const Post = () => {
         </div>
         <div className="thumbnail">
           <img
-            src={data?.response?.content?.fields.thumbnail ? data?.response?.content?.fields.thumbnail : "/images/logo.png"}
+            src={
+              data?.response?.content?.fields.thumbnail
+                ? data?.response?.content?.fields.thumbnail
+                : "/images/logo.png"
+            }
             alt="thumbnail"
             width={500}
           />
         </div>
       </div>
-    
     </>
   );
 };

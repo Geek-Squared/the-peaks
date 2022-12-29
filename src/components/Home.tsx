@@ -5,7 +5,6 @@ import ResultsCard from "./Card/ResultsCard";
 import "./styles.css";
 import TitleSection from "./TitleSection";
 import Loader from "./Loader";
-import Footer from "./Footer";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");

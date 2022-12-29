@@ -20,7 +20,6 @@ const ResultsCard: FC<ResultsCardProps> = ({
 }) => {
   const { data } = useGetPostsQuery(sortValue);
   const { data: newsData } = useGetNewsQuery(sortValue);
-  const [page, setPage] = useState(1);
 
   const firstElement = newsData?.response?.results?.slice(0, 1);
   const secondElement = newsData?.response?.results?.slice(1, 2);

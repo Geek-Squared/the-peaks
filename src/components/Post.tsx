@@ -11,35 +11,21 @@ import Navbar from "./Nav/Navbar";
 import BookmarkButton from "./BookmarkButton";
 import "./styles.css";
 import Loader from "./Loader";
+import Footer from "./Footer";
+import { convertDate, removeTrailingSlash } from "../utils";
 
 const Post = () => {
-  const bookmark = useSelector((state: RootState) => state.bookmark);
   const dispatch = useDispatch();
+  const bookmark = useSelector((state: RootState) => state.bookmark);
   const [isBookmark, setIsBookmark] = useState(true);
   const [bookmarkIsAvailable, setBookmarkIsAvailable] = useState(false);
   const params = useParams();
 
   const fullId = params?.id + "/" + params["*"];
 
-  // this is a function to remove the trailing slash from the id string so that it can be used in the api call
-  const removeTrailingSlash = (str: string) => {
-    return str.replace(/\/$/, "");
-  };
-
   // this is the id string that is used in the api call
   const postId = removeTrailingSlash(fullId);
   const { data, isLoading } = useGetPostQuery(postId);
-
-  const addPostsToBookmark = () => {
-    // save data?.response?.content to local storage
-    localStorage.setItem("bookmark", JSON.stringify(data?.response?.content));
-  };
-
-  const removePostsFromBookmark = () => {
-    dispatch(removeBookmark(data?.response?.content));
-  };
-
-  console.log("bookmark", bookmark);
 
   if (isLoading) {
     return <Loader />;
@@ -54,14 +40,15 @@ const Post = () => {
           marginTop: 20,
         }}
       >
-        <BookmarkButton title={"ADD BOOKMARK"} onClick={addPostsToBookmark} />
         <BookmarkButton
-          title={"REMOVE BOOKMARK"}
-          onClick={removePostsFromBookmark}
+          title={"ADD BOOKMARK"}
+          onClick={() => dispatch(addBookmark(data?.response?.content))}
         />
+       
       </div>
       <div className="container">
         <div className="content">
+          <p>{convertDate(data?.response?.content?.webPublicationDate)}</p>
           <h1>{data?.response?.content?.webTitle}</h1>
           <h4>{data?.response?.content?.fields.trailText}</h4>
           <hr />
@@ -69,12 +56,13 @@ const Post = () => {
         </div>
         <div className="thumbnail">
           <img
-            src={data?.response?.content?.fields.thumbnail}
+            src={data?.response?.content?.fields.thumbnail ? data?.response?.content?.fields.thumbnail : "/images/logo.png"}
             alt="thumbnail"
             width={500}
           />
         </div>
       </div>
+    
     </>
   );
 };

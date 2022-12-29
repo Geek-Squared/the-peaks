@@ -5,6 +5,7 @@ import ResultsCard from "./Card/ResultsCard";
 import "./styles.css";
 import TitleSection from "./TitleSection";
 import Loader from "./Loader";
+import Footer from "./Footer";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,7 +28,11 @@ const Home = () => {
       {showSearch ? (
         <>
           <TitleSection title="Search Results" />
-          <ResultsCard hasSearchResults searchData={data} />
+          <ResultsCard
+            hasSearchResults
+            searchData={data}
+            searchTerm={searchTerm}
+          />
         </>
       ) : null}
       <TitleSection
@@ -42,6 +47,7 @@ const Home = () => {
         onChange={(e: any) => setSortValue(e.target.value)}
       />
       <ResultsCard sortValue={sortValue} />
+      <Footer />
     </>
   );
 };

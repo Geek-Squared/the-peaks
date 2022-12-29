@@ -22,9 +22,9 @@ root.render(
     <Provider store={store}>
       <ApiProvider api={postsApi}>
         <BrowserRouter>
-          {/* <PersistGate persistor={persistor}> */}
+          <PersistGate persistor={persistor}>
             <App />
-          {/* </PersistGate> */}
+          </PersistGate>
         </BrowserRouter>
       </ApiProvider>
     </Provider>

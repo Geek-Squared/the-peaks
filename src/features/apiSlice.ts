@@ -7,8 +7,8 @@ export const postsApi = createApi({
   }),
   endpoints: (builder) => ({
     getPosts: builder.query({
-      query: (sortBy) =>
-        `https://content.guardianapis.com/search?page-size=20&&section=sport&&order-by=${sortBy}&&show-fields=all&show-refinements&api-key=2a7c32de-f8f5-4b6b-90ca-f5cbbb6d4360`,
+      query: (sortBy, page = 1) =>
+        `https://content.guardianapis.com/search?page=${page}&&page-size=20&&section=sport&&order-by=${sortBy}&&show-fields=all&show-refinements&api-key=2a7c32de-f8f5-4b6b-90ca-f5cbbb6d4360`,
     }),
     getPost: builder.query({
       query: (id) =>
@@ -20,7 +20,7 @@ export const postsApi = createApi({
     }),
     searchPosts: builder.query({
       query: (searchTerm) =>
-        `https://content.guardianapis.com/search?page-size=9&order-by=relevance&show-fields=all&q=${searchTerm}&&api-key=2a7c32de-f8f5-4b6b-90ca-f5cbbb6d4360`,
+        `https://content.guardianapis.com/search?page-size=20&order-by=relevance&show-fields=all&q=${searchTerm}&&api-key=2a7c32de-f8f5-4b6b-90ca-f5cbbb6d4360`,
     }), 
   }),
 });

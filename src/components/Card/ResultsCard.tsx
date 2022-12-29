@@ -8,6 +8,7 @@ interface ResultsCardProps {
   hasSearchResults?: boolean;
   searchData?: any;
   sortValue?: string;
+  searchTerm?: string;
 }
 
 const ResultsCard: FC<ResultsCardProps> = ({
@@ -15,24 +16,17 @@ const ResultsCard: FC<ResultsCardProps> = ({
   hasSearchResults,
   searchData,
   sortValue,
+  searchTerm
 }) => {
   const { data } = useGetPostsQuery(sortValue);
   const { data: newsData } = useGetNewsQuery(sortValue);
+  const [page, setPage] = useState(1);
 
   const firstElement = newsData?.response?.results?.slice(0, 1);
   const secondElement = newsData?.response?.results?.slice(1, 2);
   const thirdElement = newsData?.response?.results?.slice(2, 3);
   const fourthElement = newsData?.response?.results?.slice(3, 4);
   const fifthElement = newsData?.response?.results?.slice(4, 5);
-
-  // make elements iterable
-  const elements = [
-    firstElement,
-    secondElement,
-    thirdElement,
-    fourthElement,
-    fifthElement,
-  ];
 
   return (
     <>
@@ -55,6 +49,11 @@ const ResultsCard: FC<ResultsCardProps> = ({
                 </a>
               </div>
             ))}
+            {searchData?.response?.results?.length === 0 && (
+              <div className="no-results">
+                <h3>Sorry {searchTerm} could not be found.</h3>
+              </div>
+            )}
           </>
         ) : null}
 
@@ -86,13 +85,13 @@ const ResultsCard: FC<ResultsCardProps> = ({
       <div className="top">
         {isTopSection && (
           <>
-            {/* <TopSection
-              firstElement={elements[0]}
-              secondElement={elements[1]}
-              thirdElement={elements[2]}
-              fourthElement={elements[3]}
-              fifthElement={elements[4]}
-            /> */}
+            <TopSection
+              firstElement={firstElement}
+              secondElement={secondElement}
+              thirdElement={thirdElement}
+              fourthElement={fourthElement}
+              fifthElement={fifthElement}
+            />
           </>
         )}
       </div>

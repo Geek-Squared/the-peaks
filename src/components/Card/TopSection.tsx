@@ -6,7 +6,6 @@ interface TopSectionProps {
   thirdElement?: any;
   fourthElement?: any;
   fifthElement?: any;
-  sortValue?: string;
 }
 
 const TopSection: FC<TopSectionProps> = ({
@@ -14,43 +13,42 @@ const TopSection: FC<TopSectionProps> = ({
   secondElement,
   thirdElement,
   fourthElement,
-  fifthElement,
-  sortValue,
+  fifthElement
 }) => {
-  const [firstElementData] = firstElement;
-  const [secondElementData] = secondElement;
-  const [thirdElementData] = thirdElement;
-  const [fourthElementData] = fourthElement;
-  const [fifthElementData] = fifthElement;
+  
+  // initialize to empty array if undefined
+  firstElement = firstElement || [];
+  secondElement = secondElement || [];
+  thirdElement = thirdElement || [];
+  fourthElement = fourthElement || [];
+  fifthElement = fifthElement || [];
 
   return (
     <>
       <div className="top-section">
         <div
           className="card-top"
-          key={firstElementData?.id}
+          key={firstElement[0]?.id}
           style={{
             backgroundImage: `url(${
-              firstElementData?.fields?.thumbnail
-                ? firstElementData?.fields?.thumbnail
+              firstElement[0]?.fields?.thumbnail
+                ? firstElement[0]?.fields?.thumbnail
                 : `/images/logo.png`
             })`,
-            backgroundSize: firstElementData?.fields?.thumbnail
+            backgroundSize: firstElement[0]?.fields?.thumbnail
               ? "cover"
               : "contain",
-            backgroundPosition: firstElementData?.fields?.thumbnail
+            backgroundPosition: firstElement[0]?.fields?.thumbnail
               ? "center"
               : "top",
             backgroundRepeat: "no-repeat",
             borderBottom: "3px solid #D32F2F",
           }}
         >
-          <a href={`/post/${firstElementData?.id}/`}>
+          <a href={`/post/${firstElement[0]?.id}/`}>
             <div className="textSection">
-              <h4 className="cardTitle">
-                {firstElementData?.fields?.headline}
-              </h4>
-              <p className="cardDesc">{firstElementData?.fields?.trailText}</p>
+              <h4 className="cardTitle">{firstElement[0]?.fields?.headline}</h4>
+              <p className="cardDesc">{firstElement[0]?.fields?.trailText}</p>
             </div>
           </a>
         </div>
@@ -59,49 +57,49 @@ const TopSection: FC<TopSectionProps> = ({
           <div className="top-cards">
             <div
               className="card-top"
-              key={secondElementData?.id}
+              key={secondElement[0]?.id}
               style={{
                 backgroundImage: `url(${
-                  secondElementData?.fields?.thumbnail
-                    ? secondElementData?.fields?.thumbnail
+                  secondElement[0]?.fields?.thumbnail
+                    ? secondElement[0]?.fields?.thumbnail
                     : `/images/logo.png`
                 })`,
-                backgroundSize: secondElementData?.fields?.thumbnail
+                backgroundSize: secondElement[0]?.fields?.thumbnail
                   ? "cover"
                   : "contain",
-                backgroundPosition: secondElementData?.fields?.thumbnail
+                backgroundPosition: secondElement[0]?.fields?.thumbnail
                   ? "center"
                   : "top",
                 backgroundRepeat: "no-repeat",
                 height: "300px",
                 width: "360px",
-                borderBottom: "3px solid #FFC107",
+                borderBottom: "3px solid #FFC007",
               }}
             >
-              <a href={`/post/${secondElementData?.id}/`}>
+              <a href={`/post/${secondElement[0]?.id}/`}>
                 <div className="textSection">
                   <h4 className="cardTitle">
-                    {secondElementData?.fields?.headline}
+                    {secondElement[0]?.fields?.headline}
                   </h4>
                   <p className="cardDesc">
-                    {secondElementData?.fields?.trailText}
+                    {secondElement[0]?.fields?.trailText}
                   </p>
                 </div>
               </a>
             </div>
             <div
               className="card-top"
-              key={thirdElementData?.id}
+              key={thirdElement[0]?.id}
               style={{
                 backgroundImage: `url(${
-                  thirdElementData?.fields?.thumbnail
-                    ? thirdElementData?.fields?.thumbnail
+                  thirdElement[0]?.fields?.thumbnail
+                    ? thirdElement[0]?.fields?.thumbnail
                     : `/images/logo.png`
                 })`,
-                backgroundSize: thirdElementData?.fields?.thumbnail
+                backgroundSize: thirdElement[0]?.fields?.thumbnail
                   ? "cover"
                   : "contain",
-                backgroundPosition: thirdElementData?.fields?.thumbnail
+                backgroundPosition: thirdElement[0]?.fields?.thumbnail
                   ? "center"
                   : "top",
                 backgroundRepeat: "no-repeat",
@@ -110,13 +108,13 @@ const TopSection: FC<TopSectionProps> = ({
                 borderBottom: "3px solid #2196F3",
               }}
             >
-              <a href={`/post/${thirdElementData?.id}/`}>
+              <a href={`/post/${thirdElement[0]?.id}/`}>
                 <div className="textSection">
                   <h4 className="cardTitle">
-                    {thirdElementData?.fields?.headline}
+                    {thirdElement[0]?.fields?.headline}
                   </h4>
                   <p className="cardDesc">
-                    {thirdElementData?.fields?.trailText}
+                    {thirdElement[0]?.fields?.trailText}
                   </p>
                 </div>
               </a>
@@ -125,40 +123,40 @@ const TopSection: FC<TopSectionProps> = ({
           <div className="bottom-cards">
             <div
               className="card-top"
-              key={fourthElementData?.id}
+              key={fourthElement[0]?.id}
               style={{
                 height: "200px",
                 width: "360px",
                 borderBottom: "3px solid #D32F2F",
               }}
             >
-              <a href={`/post/${fourthElementData?.id}/`}>
+              <a href={`/post/${fourthElement[0]?.id}/`}>
                 <div className="textSection">
                   <h4 className="cardTitle">
-                    {fourthElementData?.fields?.headline}
+                    {fourthElement[0]?.fields?.headline}
                   </h4>
                   <p className="cardDesc">
-                    {fourthElementData?.fields?.trailText}
+                    {fourthElement[0]?.fields?.trailText}
                   </p>
                 </div>
               </a>
             </div>
             <div
               className="card-top"
-              key={fifthElementData?.id}
+              key={fifthElement[0]?.id}
               style={{
                 height: "200px",
                 width: "360px",
                 borderBottom: "3px solid #388E3C",
               }}
             >
-              <a href={`/post/${fifthElementData?.id}/`}>
+              <a href={`/post/${fifthElement[0]?.id}/`}>
                 <div className="textSection">
                   <h4 className="cardTitle">
-                    {fifthElementData?.fields?.headline}
+                    {fifthElement[0]?.fields?.headline}
                   </h4>
                   <p className="cardDesc">
-                    {fifthElementData?.fields?.trailText}
+                    {fifthElement[0]?.fields?.trailText}
                   </p>
                 </div>
               </a>

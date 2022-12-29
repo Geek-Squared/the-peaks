@@ -13,7 +13,7 @@ const BookmarkButton: FC<BookmarkButtonProps> = ({
   return (
     <>
       <button className="btn" onClick={onClick}>
-        <img src={"/images/bookmark_on.svg"} alt="icon" className="icon" />
+        <img src={"/images/bookmark_off.svg"} alt="icon" className="icon" />
         {title}
       </button>
     </>

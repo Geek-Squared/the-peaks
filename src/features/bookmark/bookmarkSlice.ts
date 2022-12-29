@@ -16,12 +16,12 @@ export const bookmarkSlice = createSlice({
       state.bookmarks.push(action.payload);
     },
     removeBookmark: (state, action: PayloadAction<string>) => {
-      state.bookmarks = state.bookmarks.filter(
-        (bookmark: string) => bookmark !== action.payload
-      );
+      state.bookmarks.splice(state.bookmarks.indexOf(action.payload), 1);
     },
   },
 });
+
+
 
 export const { addBookmark, removeBookmark } = bookmarkSlice.actions;
 

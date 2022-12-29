@@ -47,7 +47,7 @@ const Home = () => {
         onChange={(e: any) => setSortValue(e.target.value)}
       />
       <ResultsCard sortValue={sortValue} />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

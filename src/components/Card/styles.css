@@ -6,9 +6,7 @@
 
 @media (max-width: 768px) {
   .top-section {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
+    display: none;
   }
 }
 

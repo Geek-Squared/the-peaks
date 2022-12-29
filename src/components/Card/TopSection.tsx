@@ -71,8 +71,8 @@ const TopSection: FC<TopSectionProps> = ({
                   ? "center"
                   : "top",
                 backgroundRepeat: "no-repeat",
-                height: "300px",
-                width: "360px",
+                height: "200px",
+                width: "260px",
                 borderBottom: "3px solid #FFC007",
               }}
             >
@@ -103,8 +103,8 @@ const TopSection: FC<TopSectionProps> = ({
                   ? "center"
                   : "top",
                 backgroundRepeat: "no-repeat",
-                height: "300px",
-                width: "360px",
+                height: "200px",
+                width: "260px",
                 borderBottom: "3px solid #2196F3",
               }}
             >
@@ -125,8 +125,8 @@ const TopSection: FC<TopSectionProps> = ({
               className="card-top"
               key={fourthElement[0]?.id}
               style={{
-                height: "200px",
-                width: "360px",
+                height: "150px",
+                width: "260px",
                 borderBottom: "3px solid #D32F2F",
               }}
             >
@@ -145,8 +145,8 @@ const TopSection: FC<TopSectionProps> = ({
               className="card-top"
               key={fifthElement[0]?.id}
               style={{
-                height: "200px",
-                width: "360px",
+                height: "150px",
+                width: "260px",
                 borderBottom: "3px solid #388E3C",
               }}
             >

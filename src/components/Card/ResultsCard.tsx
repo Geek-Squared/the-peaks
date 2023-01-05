@@ -9,6 +9,7 @@ interface ResultsCardProps {
   searchData?: any;
   sortValue?: string;
   searchTerm?: string;
+  bookmarkData?: any;
 }
 
 const ResultsCard: FC<ResultsCardProps> = ({
@@ -16,7 +17,8 @@ const ResultsCard: FC<ResultsCardProps> = ({
   hasSearchResults,
   searchData,
   sortValue,
-  searchTerm
+  searchTerm,
+  bookmarkData,
 }) => {
   const { data } = useGetPostsQuery(sortValue);
   const { data: newsData } = useGetNewsQuery(sortValue);
@@ -80,6 +82,7 @@ const ResultsCard: FC<ResultsCardProps> = ({
             )}
           </>
         ))}
+    
       </div>
       <div className="top">
         {isTopSection && (

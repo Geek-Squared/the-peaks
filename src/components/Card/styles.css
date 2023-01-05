@@ -172,6 +172,16 @@ img {
   padding-top: 0;
   padding-bottom: 0;
 }
+.bookmark-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+  row-gap: 2rem;
+  padding: 200px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top:  50px ;
+}
 
 @media (max-width: 768px) {
   .top {
@@ -185,6 +195,14 @@ img {
     margin: 0 50px;
   }
   .results {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    padding: 10px;
+    margin: 0 auto;
+  }
+  .bookmark-results {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     column-gap: 2rem;
